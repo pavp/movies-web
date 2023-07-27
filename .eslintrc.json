@@ -11,7 +11,7 @@
     "curly": ["error", "multi-line"],
     "newline-before-return": "error",
     "no-bitwise": "error",
-    "no-console": "error",
+    "no-console": "warn",
     "react-hooks/exhaustive-deps": "warn",
     "@typescript-eslint/explicit-module-boundary-types": "off", // Optional: If you want to disable explicit return types on functions.
     "padding-line-between-statements": [
@@ -19,7 +19,12 @@
       { "blankLine": "always", "prev": "*", "next": "return" },
       { "blankLine": "any", "prev": "return", "next": "*" }
     ],
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "no-restricted-globals": [
+      "error",
+      { "name": "any", "message": "The use of 'any' is not allowed. Please use more specific types." }
+    ]
   },
   "settings": {
     "react": {

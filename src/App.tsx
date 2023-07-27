@@ -1,8 +1,8 @@
-import { Navigation } from 'routes/Navigation'
-import './assets/main.css'
+import { AppRouter } from 'routes/AppRouter'
+import 'assets/main.css'
 
 function App() {
-  return <Navigation />
+  return <AppRouter />
 }
 
 export default App
