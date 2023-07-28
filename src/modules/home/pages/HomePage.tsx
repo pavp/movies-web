@@ -1,11 +1,10 @@
-import { HorizontalCarousel } from 'components'
+import { useMemo } from 'react'
+import { ErrorMessage, HorizontalCarousel, ActivityIndicator } from 'components'
 import { useGetMovies } from 'hooks'
 import { GetMoviesType } from 'interfaces'
 import { NavbarDetail } from '../components/NavbarDetail/NavbarDetail'
 import { ModalDetail } from '../components/ModalDetail/ModalDetail'
 import { useCurrentMovie } from '../hooks/useCurrentMovie/useCurrentMovie'
-import { useMemo } from 'react'
-import { ActivityIndicator } from 'components'
 
 export const HomePage = () => {
   const { data: upcomingMovies, isLoading: isLoadingUpComingMovies } = useGetMovies(GetMoviesType.GET_MOVIES_UPCOMING)
@@ -18,7 +17,14 @@ export const HomePage = () => {
     [isLoadingPopularMovies, isLoadingRatedMovies, isLoadingUpComingMovies]
   )
 
+  const isError = useMemo(
+    () => !upcomingMovies && !popularMovies && !topRatedMovies,
+    [upcomingMovies, popularMovies, topRatedMovies]
+  )
+
   if (isLoading) return <ActivityIndicator />
+
+  if (isError) return <ErrorMessage />
 
   return (
     <div className="flex w-screen h-screen">

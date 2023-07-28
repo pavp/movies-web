@@ -1,4 +1,4 @@
-import { CloseButton } from 'components'
+import { ActivityIndicator, CloseButton } from 'components'
 import { useGetResponsiveVariant } from 'hooks'
 import { VariantsResponsiveType } from 'interfaces/responsive'
 import { useEffect } from 'react'
@@ -6,7 +6,12 @@ import Modal from 'react-modal'
 import { useMovieStore } from 'store/useMovieStore'
 
 export const ModalDetail = () => {
-  const { current: data, isVisibleDetailModal: isVisible, setIsVisibleDetailModal } = useMovieStore((state) => state)
+  const {
+    current: data,
+    isVisibleDetailModal: isVisible,
+    setIsVisibleDetailModal,
+    isLoadingCurrentMovie: isLoading,
+  } = useMovieStore((state) => state)
   const { poster_path, backdrop_path, title, overview, release_date, genres, homepage } = data ?? {}
   const { responsiveVariant } = useGetResponsiveVariant()
 
@@ -36,37 +41,42 @@ export const ModalDetail = () => {
           borderRadius: '8px',
           borderColor: '#83a0e9',
           padding: 0,
+          backgroundColor: '#161523',
         },
         overlay: {
           backgroundColor: 'rgba(42, 41, 67, 0.9)',
         },
       }}>
-      <div className="relative w-full h-full">
-        <div
-          className="absolute inset-0 w-full h-full bg-cover bg-center filter blur-xs"
-          style={{
-            backgroundImage: `url(https://image.tmdb.org/t/p/original${poster_path ?? backdrop_path})`,
-            minHeight: '100%',
-          }}
-        />
+      {isLoading ? (
+        <ActivityIndicator />
+      ) : (
+        <div className="relative w-full h-full">
+          <div
+            className="absolute inset-0 w-full h-full bg-cover bg-center filter blur-xs"
+            style={{
+              backgroundImage: `url(https://image.tmdb.org/t/p/original${poster_path ?? backdrop_path})`,
+              minHeight: '100%',
+            }}
+          />
 
-        <div className="relative h-full overflow-y-auto p-4 pt-8 bg-black bg-opacity-50">
-          <CloseButton onClose={() => setIsVisibleDetailModal(false)} />
-          <div className="p-2 text-white font-bold text-3xl">{title}</div>
-          <div className="p-2 text-white">{release_date ? new Date(release_date).getFullYear() : null}</div>
-          <div className="flex flex-column">
-            {genres?.map((genre) => (
-              <div className="p-2 text-white" key={genre.id}>
-                {genre.name}
-              </div>
-            ))}
+          <div className="relative h-full overflow-y-auto p-4 pt-8 bg-black bg-opacity-50">
+            <CloseButton onClose={() => setIsVisibleDetailModal(false)} />
+            <div className="p-2 text-white font-bold text-3xl">{title}</div>
+            <div className="p-2 text-white">{release_date ? new Date(release_date).getFullYear() : null}</div>
+            <div className="flex flex-column">
+              {genres?.map((genre) => (
+                <div className="p-2 text-white" key={genre.id}>
+                  {genre.name}
+                </div>
+              ))}
+            </div>
+            <div className="p-2 text-white">{overview}</div>
+            <a className="p-2 text-cyan-400" href={homepage} target="_blank" rel="noopener noreferrer">
+              {homepage}
+            </a>
           </div>
-          <div className="p-2 text-white">{overview}</div>
-          <a className="p-2 text-cyan-400" href={homepage} target="_blank" rel="noopener noreferrer">
-            {homepage}
-          </a>
         </div>
-      </div>
+      )}
     </Modal>
   )
 }

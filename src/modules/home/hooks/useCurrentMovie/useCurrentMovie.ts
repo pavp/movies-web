@@ -4,8 +4,9 @@ import { useMovieStore } from 'store/useMovieStore'
 
 export const useCurrentMovie = () => {
   const [currentMovieId, setCurrentMovieId] = useState<number | string>('')
-  const { setIsVisibleDetailModal, setIsVisibleDetailSection, setCurrentMovie } = useMovieStore((state) => state)
-  const { data, refetch } = useGetMovieDetail(currentMovieId)
+  const { setIsVisibleDetailModal, setIsVisibleDetailSection, setCurrentMovie, setIsLoadingCurrentMovie } =
+    useMovieStore((state) => state)
+  const { data, refetch, isLoading } = useGetMovieDetail(currentMovieId)
   const { responsiveVariant } = useGetResponsiveVariant()
 
   const onPressMovie = (id: number | string) => {
@@ -17,6 +18,10 @@ export const useCurrentMovie = () => {
   useEffect(() => {
     if (!!data) setCurrentMovie(data)
   }, [data])
+
+  useEffect(() => {
+    setIsLoadingCurrentMovie(isLoading)
+  }, [isLoading])
 
   useEffect(() => {
     if (currentMovieId) refetch()

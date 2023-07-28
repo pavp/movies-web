@@ -12,7 +12,7 @@ export const Card = ({ item, className, handlePressMovie }: ICard) => {
   return (
     <div>
       <div
-        className={`rounded-lg overflow-hidden shadow-md bg-white m-5 mb-2 ${className}`}
+        className={`rounded-lg overflow-hidden shadow-md m-5 mb-2 ${className}`}
         onClick={() => handlePressMovie(id)}>
         <img
           className="w-full"

@@ -1,3 +1,4 @@
+export { ErrorMessage } from './errorMessage/ActivityIndicator'
 export { ActivityIndicator } from './activityIndicator/ActivityIndicator'
 export { Card } from './card/Card'
 export { CloseButton } from './closeButton/CloseButton'
