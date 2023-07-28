@@ -24,8 +24,15 @@ export const NavbarDetail = () => {
   }
 
   return (
-    <div className={`w-[32rem] ${isVisible ? 'hidden md:block' : 'hidden'} h-screen bg-black`}>
-      <div className="p-4 pt-9 absolute z-10 bg-black bg-opacity-50 bottom-0 top-[60px]">
+    <div className={`w-[32rem] ${isVisible ? 'hidden md:block' : 'hidden'} h-full bg-black relative`}>
+      <div
+        className={'absolute inset-0 bg-cover bg-center blur-xs w-full h-full'}
+        style={{
+          backgroundImage: `url(https://image.tmdb.org/t/p/original${poster_path ?? backdrop_path})`,
+        }}
+      />
+
+      <div className="relative p-4 pt-9 w-full h-full bg-black bg-opacity-50">
         <CloseButton onClose={() => setIsVisibleDetailSection(false)} />
         <div className="p-2 text-white font-bold text-3xl">{title}</div>
         <div className="p-2 text-white">{release_date ? new Date(release_date).getFullYear() : null}</div>
@@ -41,12 +48,6 @@ export const NavbarDetail = () => {
           {homepage}
         </a>
       </div>
-      <div
-        className={'w-full bg-cover bg-center h-screen relative blur-xs'}
-        style={{
-          backgroundImage: `url(https://image.tmdb.org/t/p/original${poster_path ?? backdrop_path})`,
-        }}
-      />
     </div>
   )
 }

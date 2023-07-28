@@ -28,7 +28,7 @@ export const HomePage = () => {
 
   return (
     <div className="flex w-screen h-screen">
-      <div className="overflow-y-auto w-full">
+      <div className="overflow-y-auto w-full h-screen pb-20">
         <HorizontalCarousel
           data={popularMovies?.results}
           title={'Popular Movies'}
