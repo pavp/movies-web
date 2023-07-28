@@ -1,19 +1,15 @@
 import { ActivityIndicator, CloseButton } from 'components'
-import { useGetResponsiveVariant } from 'hooks'
+import { useGetMovieDetail, useGetResponsiveVariant } from 'hooks'
 import { VariantsResponsiveType } from 'interfaces/responsive'
 import { useEffect } from 'react'
 import Modal from 'react-modal'
 import { useMovieStore } from 'store/useMovieStore'
 
 export const ModalDetail = () => {
-  const {
-    current: data,
-    isVisibleDetailModal: isVisible,
-    setIsVisibleDetailModal,
-    isLoadingCurrentMovie: isLoading,
-  } = useMovieStore((state) => state)
-  const { poster_path, backdrop_path, title, overview, release_date, genres, homepage } = data ?? {}
+  const { isVisibleDetailModal: isVisible, setIsVisibleDetailModal } = useMovieStore((state) => state)
   const { responsiveVariant } = useGetResponsiveVariant()
+  const { data, isLoading } = useGetMovieDetail()
+  const { poster_path, backdrop_path, title, overview, release_date, genres, homepage } = data ?? {}
 
   useEffect(() => {
     handleResizeScreen(responsiveVariant)
