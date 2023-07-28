@@ -1,5 +1,5 @@
 import apiClient from 'api/ApiClient'
-import { API_WISHLIST_ITEM } from 'services/constants'
+import { API_WISHLIST_ITEM } from 'config/app'
 
 export const postWishListItem = async (mediaId: number | string, session: string) => {
   const media = {

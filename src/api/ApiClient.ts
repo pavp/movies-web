@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { API_KEY, BASE_URL } from 'services/constants'
+import { API_KEY, BASE_URL } from 'config/app'
 
 export default axios.create({
   baseURL: BASE_URL,

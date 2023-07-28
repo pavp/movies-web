@@ -2,9 +2,9 @@ import { useEffect } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { RequestToken } from 'interfaces'
 import { getToken } from 'services'
-import { BASE_REQUEST_TOKEN_URL } from 'services/constants'
+import { BASE_REQUEST_TOKEN_URL } from 'config/app'
 
-const REDIRECT_URL = 'http://localhost:3000/redirect'
+const REDIRECT_URL = `${window.location.href}redirect`
 
 const useRequestToken = () =>
   useQuery<RequestToken, Error>(['request-token'], () => getToken(), {
