@@ -55,11 +55,11 @@ export const ModalDetail = () => {
             }}
           />
 
-          <div className="relative h-full overflow-y-auto p-4 pt-8 bg-black bg-opacity-50">
+          <div className="relative h-full overflow-y-auto px-4 pt-9 pb-8 bg-black bg-opacity-50">
             <CloseButton onClose={() => setIsVisibleDetailModal(false)} />
             <div className="p-2 text-white font-bold text-3xl">{title}</div>
             <div className="p-2 text-white">{release_date ? new Date(release_date).getFullYear() : null}</div>
-            <div className="flex flex-column">
+            <div className="flex flex-wrap flex-column">
               {genres?.map((genre) => (
                 <div className="p-2 text-white" key={genre.id}>
                   {genre.name}

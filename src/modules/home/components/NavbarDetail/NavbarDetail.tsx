@@ -32,11 +32,11 @@ export const NavbarDetail = () => {
         }}
       />
 
-      <div className="relative p-4 pt-9 w-full h-full bg-black bg-opacity-50">
+      <div className="relative overflow-y-auto px-4 pt-9 pb-20 w-full h-full bg-black bg-opacity-50">
         <CloseButton onClose={() => setIsVisibleDetailSection(false)} />
         <div className="p-2 text-white font-bold text-3xl">{title}</div>
         <div className="p-2 text-white">{release_date ? new Date(release_date).getFullYear() : null}</div>
-        <div className="flex flex-column">
+        <div className="flex flex-wrap flex-column">
           {genres?.map((genre) => (
             <div className="p-2 text-white" key={genre.id}>
               {genre.name}
