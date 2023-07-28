@@ -1,5 +1,4 @@
-import { useGetMovieDetail } from 'hooks/useGetMovieDetail/useGetMovieDetail'
-import { useGetResponsiveVariant } from 'hooks/useGetResponsiveVariant/useGetResponsiveVariant'
+import { useGetMovieDetail, useGetResponsiveVariant } from 'hooks'
 import { useEffect, useState } from 'react'
 import { useMovieStore } from 'store/useMovieStore'
 
@@ -11,7 +10,7 @@ export const useCurrentMovie = () => {
 
   const onPressMovie = (id: number | string) => {
     setCurrentMovieId(id)
-    if (responsiveVariant === 'sm') setIsVisibleDetailModal(true)
+    if (responsiveVariant === 'sm' || responsiveVariant === 'md') setIsVisibleDetailModal(true)
     else setIsVisibleDetailSection(true)
   }
 

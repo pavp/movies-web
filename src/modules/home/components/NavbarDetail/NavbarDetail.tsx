@@ -1,12 +1,18 @@
+import { CloseButton } from 'components'
 import { useMovieStore } from 'store/useMovieStore'
 
 export const NavbarDetail = () => {
-  const { current: data, isVisibleDetailSection: isVisible } = useMovieStore((state) => state)
+  const {
+    current: data,
+    isVisibleDetailSection: isVisible,
+    setIsVisibleDetailSection,
+  } = useMovieStore((state) => state)
   const { poster_path, backdrop_path, title, overview, release_date, genres, homepage } = data ?? {}
 
   return (
     <div className={`w-[32rem] ${isVisible ? 'hidden md:block' : 'hidden'} h-screen bg-black`}>
-      <div className="p-4 absolute z-10 bg-black bg-opacity-50 bottom-0 top-[60px]">
+      <div className="p-4 pt-9 absolute z-10 bg-black bg-opacity-50 bottom-0 top-[60px]">
+        <CloseButton onClose={() => setIsVisibleDetailSection(false)} />
         <div className="p-2 text-white font-bold text-3xl">{title}</div>
         <div className="p-2 text-white">{release_date ? new Date(release_date).getFullYear() : null}</div>
         <div className="flex flex-column">

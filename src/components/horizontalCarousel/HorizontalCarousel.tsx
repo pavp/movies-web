@@ -1,20 +1,20 @@
-import { Card } from 'components/card/Card'
-import { GetMoviesType, Movie } from 'interfaces'
+import { Card } from 'components'
+import { Movie } from 'interfaces'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { settings } from './constant'
 import { useRef } from 'react'
+import './styles.css'
 
-interface IHorizontalCarrousel {
+interface IHorizontalCarousel {
   title: string
   data: Movie[] | undefined
   isLoading: boolean
-  type: GetMoviesType
   handlePressMovie: (id: number | string) => void
 }
 
-export const HorizontalCarrousel = ({ data, title, handlePressMovie }: IHorizontalCarrousel) => {
+export const HorizontalCarousel = ({ data, title, handlePressMovie }: IHorizontalCarousel) => {
   const isDragging = useRef(false)
 
   const onPressMovie = (id: string | number) => {
@@ -23,7 +23,7 @@ export const HorizontalCarrousel = ({ data, title, handlePressMovie }: IHorizont
 
   return (
     <div className="w-full my-8 mx-auto">
-      <div className="mx-6 font-bold text-2xl">{title}</div>
+      <div className="mx-6 font-bold text-2xl text-c-light-blue">{title}</div>
       <Slider
         {...settings}
         onSwipe={() => (isDragging.current = true)}

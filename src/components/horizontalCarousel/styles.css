@@ -1,0 +1,3 @@
+.slick-dots li button:before {
+  color: theme('colors.c-light-blue') !important;
+}

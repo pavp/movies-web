@@ -1,7 +1,7 @@
 import { PropsWithChildren, useEffect, useState } from 'react'
 import SessionContext from './SessionContext'
-import { useRequestSession } from 'hooks/useRequestSession/useRequestSession'
-import { KEYS_STORAGE, getData } from 'utils/AsyncStorageManager'
+import { useRequestSession } from 'hooks'
+import { KEYS_STORAGE, getData } from 'utils/asyncStorageManager'
 
 export const SessionGlobalState = ({ children }: PropsWithChildren) => {
   const [session, setSession] = useState<string>('')

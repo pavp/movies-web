@@ -1,4 +1,5 @@
-import useCreateSession from 'hooks/useCreateSession/useCreateSession'
+import { ActivityIndicator } from 'components'
+import { useCreateSession } from 'hooks'
 import { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
@@ -17,12 +18,9 @@ export const RedirectPage = () => {
 
       return
     }
+
     navigate('/')
   }, [location.search])
 
-  return (
-    <>
-      <div>Wait a moment please...</div>
-    </>
-  )
+  return <ActivityIndicator />
 }

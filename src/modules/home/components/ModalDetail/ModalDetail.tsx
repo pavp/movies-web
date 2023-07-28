@@ -1,4 +1,5 @@
-import { useGetResponsiveVariant } from 'hooks/useGetResponsiveVariant/useGetResponsiveVariant'
+import { CloseButton } from 'components'
+import { useGetResponsiveVariant } from 'hooks'
 import { VariantsResponsiveType } from 'interfaces/responsive'
 import { useEffect } from 'react'
 import Modal from 'react-modal'
@@ -33,11 +34,24 @@ export const ModalDetail = () => {
           right: '40px',
           bottom: '40px',
           borderRadius: '8px',
+          borderColor: '#83a0e9',
           padding: 0,
         },
+        overlay: {
+          backgroundColor: 'rgba(42, 41, 67, 0.9)',
+        },
       }}>
-      <div className={'w-full h-full'}>
-        <div className="p-4 absolute z-10 bg-black bg-opacity-50 bottom-0 top-0 left-0 right-0">
+      <div className="relative w-full h-full">
+        <div
+          className="absolute inset-0 w-full h-full bg-cover bg-center filter blur-xs"
+          style={{
+            backgroundImage: `url(https://image.tmdb.org/t/p/original${poster_path ?? backdrop_path})`,
+            minHeight: '100%',
+          }}
+        />
+
+        <div className="relative h-full overflow-y-auto p-4 pt-8 bg-black bg-opacity-50">
+          <CloseButton onClose={() => setIsVisibleDetailModal(false)} />
           <div className="p-2 text-white font-bold text-3xl">{title}</div>
           <div className="p-2 text-white">{release_date ? new Date(release_date).getFullYear() : null}</div>
           <div className="flex flex-column">
@@ -52,12 +66,6 @@ export const ModalDetail = () => {
             {homepage}
           </a>
         </div>
-        <div
-          className={'w-full bg-cover bg-center h-full relative blur-xs'}
-          style={{
-            backgroundImage: `url(https://image.tmdb.org/t/p/original${poster_path ?? backdrop_path})`,
-          }}
-        />
       </div>
     </Modal>
   )

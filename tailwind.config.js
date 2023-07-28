@@ -4,7 +4,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'primary-gray': '#191b1e',
+        'c-dark-purple': '#161523',
+        'c-light-purple': '#2a2943',
+        'c-light-blue': '#83a0e9',
       },
       blur: {
         xs: '2px',

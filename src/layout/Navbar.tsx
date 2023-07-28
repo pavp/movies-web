@@ -2,10 +2,10 @@ import { NavLink } from 'react-router-dom'
 
 export const Navbar = () => {
   return (
-    <nav className="bg-primary-gray p-4">
+    <nav className="bg-c-light-purple p-4">
       <div className="mx-4">
         <div className="flex items-center justify-between">
-          <div className="text-white font-semibold text-xl">
+          <div className="text-c-light-blue font-semibold text-xl">
             <NavLink to={'/home'}>Movies</NavLink>
           </div>
           <ul className="flex space-x-4 ml-4 justify-end">
