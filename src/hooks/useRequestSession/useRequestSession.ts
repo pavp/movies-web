@@ -4,8 +4,6 @@ import { RequestToken } from 'interfaces'
 import { getToken } from 'services'
 import { BASE_REQUEST_TOKEN_URL } from 'config/app'
 
-const REDIRECT_URL = `${window.location.href}redirect`
-
 const useRequestToken = () =>
   useQuery<RequestToken, Error>(['request-token'], () => getToken(), {
     enabled: false,
@@ -16,7 +14,8 @@ export const useRequestSession = () => {
 
   useEffect(() => {
     if (data?.success && data?.request_token) {
-      window.location.replace(`${BASE_REQUEST_TOKEN_URL + data.request_token}?redirect_to=${REDIRECT_URL}`)
+      const url = `${BASE_REQUEST_TOKEN_URL + data.request_token}?redirect_to=${window.location.origin}/redirect`
+      window.location.replace(url)
     }
   }, [data])
 
