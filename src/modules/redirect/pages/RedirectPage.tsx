@@ -1,6 +1,6 @@
+import { useEffect } from 'react'
 import { ActivityIndicator } from 'components'
 import { useCreateSession } from 'hooks'
-import { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 export const RedirectPage = () => {

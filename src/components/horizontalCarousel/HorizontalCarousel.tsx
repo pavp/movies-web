@@ -3,7 +3,7 @@ import { Movie } from 'interfaces'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import { settings } from './constant'
+import { settings } from './constants'
 import { useRef } from 'react'
 import './styles.css'
 

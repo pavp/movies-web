@@ -1,10 +1,7 @@
 import { useMemo } from 'react'
-import { ErrorMessage, HorizontalCarousel, ActivityIndicator } from 'components'
-import { useGetMovies } from 'hooks'
+import { ErrorMessage, HorizontalCarousel, ActivityIndicator, ModalDetail, NavbarDetail } from 'components'
+import { useGetMovies, useCurrentMovie } from 'hooks'
 import { GetMoviesType } from 'interfaces'
-import { NavbarDetail } from '../components/NavbarDetail/NavbarDetail'
-import { ModalDetail } from '../components/ModalDetail/ModalDetail'
-import { useCurrentMovie } from '../hooks/useCurrentMovie/useCurrentMovie'
 
 export const HomePage = () => {
   const { data: upcomingMovies, isLoading: isLoadingUpComingMovies } = useGetMovies(GetMoviesType.GET_MOVIES_UPCOMING)

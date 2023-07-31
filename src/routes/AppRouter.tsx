@@ -1,10 +1,8 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { RootLayout } from 'layout'
-import { WishlistPage } from 'modules/wishlist/pages/WishlistPage'
-import { HomePage } from 'modules/home/pages/HomePage'
 import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom'
-import { RedirectPage } from 'modules/redirect/pages/RedirectPage'
 import { SessionGlobalState } from 'context/SessionContext/SessionGlobalState'
+import { HomePage, WishlistPage, RedirectPage } from 'modules'
 
 export const AppRouter = () => {
   const queryClient = new QueryClient()

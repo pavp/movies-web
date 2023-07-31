@@ -1,6 +1,6 @@
 import { ActivityIndicator, CloseButton } from 'components'
 import { useGetMovieDetail, useGetResponsiveVariant } from 'hooks'
-import { VariantsResponsiveType } from 'interfaces/responsive'
+import { VariantsResponsiveType } from 'interfaces'
 import { useEffect } from 'react'
 import Modal from 'react-modal'
 import { useMovieStore } from 'store/useMovieStore'

@@ -1,3 +1,5 @@
+export { ModalDetail } from './ModalDetail/ModalDetail'
+export { NavbarDetail } from './NavbarDetail/NavbarDetail'
 export { ErrorMessage } from './errorMessage/ActivityIndicator'
 export { ActivityIndicator } from './activityIndicator/ActivityIndicator'
 export { Card } from './card/Card'

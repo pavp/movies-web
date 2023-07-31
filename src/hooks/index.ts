@@ -1,3 +1,4 @@
+export { useCurrentMovie } from './useCurrentMovie/useCurrentMovie'
 export { useCreateSession } from './useCreateSession/useCreateSession'
 export { useGetMovieDetail } from './useGetMovieDetail/useGetMovieDetail'
 export { useGetMovies } from './useGetMovies/useGetMovies'
