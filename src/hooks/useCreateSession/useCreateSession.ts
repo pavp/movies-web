@@ -4,7 +4,7 @@ import { Session } from 'interfaces'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { postSession } from 'services'
-import { KEYS_STORAGE, storeData } from 'utils/asyncStorageManager'
+import { KEYS_STORAGE, storeData } from 'utils/localStorageManager'
 
 export const useCreateSession = () => {
   const { setSession } = useContext(SessionContext)
