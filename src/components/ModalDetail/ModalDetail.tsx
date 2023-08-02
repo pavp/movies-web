@@ -1,4 +1,4 @@
-import { ActivityIndicator, CloseButton } from 'components'
+import { ActivityIndicator, CloseButton, WishlistButton } from 'components'
 import { useGetMovieDetail, useGetResponsiveVariant } from 'hooks'
 import { VariantsResponsiveType } from 'interfaces'
 import { useEffect } from 'react'
@@ -70,6 +70,9 @@ export const ModalDetail = () => {
             <a className="p-2 text-cyan-400" href={homepage} target="_blank" rel="noopener noreferrer">
               {homepage}
             </a>
+            <div className="flex justify-center items-center my-8 space-x-8">
+              <WishlistButton />
+            </div>
           </div>
         </div>
       )}

@@ -1,4 +1,4 @@
-import { ActivityIndicator, CloseButton, ErrorMessage } from 'components'
+import { ActivityIndicator, CloseButton, ErrorMessage, WishlistButton } from 'components'
 import { useGetMovieDetail } from 'hooks'
 import { useMovieStore } from 'store/useMovieStore'
 
@@ -9,7 +9,7 @@ export const NavbarDetail = () => {
 
   if (isLoading) {
     return (
-      <div className={`w-[24rem] ${isVisible ? 'hidden md:block' : 'hidden'} h-screen bg-black`}>
+      <div className={`w-[32rem] ${isVisible ? 'hidden md:block' : 'hidden'} h-full bg-black`}>
         <ActivityIndicator />
       </div>
     )
@@ -17,7 +17,7 @@ export const NavbarDetail = () => {
 
   if (isError) {
     return (
-      <div className={`w-[24rem] ${isVisible ? 'hidden md:block' : 'hidden'} h-screen bg-black`}>
+      <div className={`w-[32rem] ${isVisible ? 'hidden md:block' : 'hidden'} h-full bg-black`}>
         <ErrorMessage />
       </div>
     )
@@ -47,6 +47,9 @@ export const NavbarDetail = () => {
         <a className="p-2 text-cyan-400" href={homepage} target="_blank" rel="noopener noreferrer">
           {homepage}
         </a>
+        <div className="flex justify-center items-center my-8 space-x-8">
+          <WishlistButton />
+        </div>
       </div>
     </div>
   )

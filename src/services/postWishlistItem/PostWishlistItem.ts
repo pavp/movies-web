@@ -1,11 +1,17 @@
 import apiClient from 'api/ApiClient'
 import { API_WISHLIST_ITEM } from 'config/app'
 
-export const postWishListItem = async (mediaId: number | string, session: string) => {
+interface IPostWishListItem {
+  mediaId: number | string
+  session: string
+  isWatchList: boolean
+}
+
+export const postWishListItem = async ({ isWatchList, session, mediaId }: IPostWishListItem) => {
   const media = {
     media_type: 'movie',
     media_id: mediaId,
-    watchlist: true,
+    watchlist: isWatchList,
   }
   const { data } = await apiClient.post(API_WISHLIST_ITEM(), media, {
     params: { session_id: session },

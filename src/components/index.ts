@@ -1,3 +1,4 @@
+export { WishlistButton } from './wishlistButton/WishlistButton'
 export { ModalDetail } from './ModalDetail/ModalDetail'
 export { NavbarDetail } from './NavbarDetail/NavbarDetail'
 export { ErrorMessage } from './errorMessage/ActivityIndicator'

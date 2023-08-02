@@ -1,3 +1,4 @@
+export { useWishListItem } from './useAddWishListItem/useWishListItem'
 export { useCurrentMovie } from './useCurrentMovie/useCurrentMovie'
 export { useCreateSession } from './useCreateSession/useCreateSession'
 export { useGetMovieDetail } from './useGetMovieDetail/useGetMovieDetail'

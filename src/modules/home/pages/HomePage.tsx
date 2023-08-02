@@ -10,7 +10,7 @@ export const HomePage = () => {
   const { onPressMovie } = useCurrentMovie()
 
   const isLoading = useMemo(
-    () => isLoadingPopularMovies && isLoadingPopularMovies && isLoadingRatedMovies,
+    () => isLoadingPopularMovies && isLoadingUpComingMovies && isLoadingRatedMovies,
     [isLoadingPopularMovies, isLoadingRatedMovies, isLoadingUpComingMovies]
   )
 
