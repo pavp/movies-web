@@ -1,7 +1,7 @@
 import { createContext } from 'react'
 
 interface ISessionContext {
-  session: string
+  session: string | undefined
   setSession: (id: string) => void
   getSession: (callRequestSession: boolean) => void
 }

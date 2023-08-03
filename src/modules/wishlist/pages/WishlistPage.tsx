@@ -16,9 +16,9 @@ export const WishlistPage = () => {
   if (isError) return <ErrorMessage />
 
   return (
-    <div className="flex w-screen h-screen">
+    <div className="flex w-screen h-screen" data-testid="wishlist-page-container">
       <div className="overflow-y-auto w-full">
-        <VerticalCarousel data={data?.results} isLoading={isLoading} handlePressMovie={onPressMovie} />
+        <VerticalCarousel data={data?.results} handlePressMovie={onPressMovie} />
       </div>
       <NavbarDetail />
       <ModalDetail />

@@ -10,7 +10,6 @@ import './styles.css'
 interface IHorizontalCarousel {
   title: string
   data: Movie[] | undefined
-  isLoading: boolean
   handlePressMovie: (id: number | string) => void
 }
 

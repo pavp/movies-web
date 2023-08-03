@@ -1,11 +1,8 @@
 import { Card } from 'components'
 import { Movie } from 'interfaces'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
 
 interface IVerticalCarousel {
   data: Movie[] | undefined
-  isLoading: boolean
   handlePressMovie: (id: number | string) => void
 }
 

@@ -7,7 +7,7 @@ import { getWishListMovies } from 'services'
 export const useGetWishListMovies = () => {
   const { session } = useContext(SessionContext)
 
-  return useQuery<MovieListResponse, Error>(['wishlist-movies'], () => getWishListMovies(session), {
+  return useQuery<MovieListResponse, Error>(['wishlist-movies', session], () => getWishListMovies(session!), {
     enabled: !!session,
   })
 }

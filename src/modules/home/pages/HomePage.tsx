@@ -24,26 +24,11 @@ export const HomePage = () => {
   if (isError) return <ErrorMessage />
 
   return (
-    <div className="flex w-screen h-screen">
+    <div className="flex w-screen h-screen" data-testid="home-page-container">
       <div className="overflow-y-auto w-full h-screen pb-20">
-        <HorizontalCarousel
-          data={popularMovies?.results}
-          title={'Popular Movies'}
-          isLoading={isLoadingPopularMovies}
-          handlePressMovie={onPressMovie}
-        />
-        <HorizontalCarousel
-          data={upcomingMovies?.results}
-          title={'Upcoming Movies'}
-          isLoading={isLoadingUpComingMovies}
-          handlePressMovie={onPressMovie}
-        />
-        <HorizontalCarousel
-          data={topRatedMovies?.results}
-          title={'Top Rated Movies'}
-          isLoading={isLoadingRatedMovies}
-          handlePressMovie={onPressMovie}
-        />
+        <HorizontalCarousel data={popularMovies?.results} title={'Popular Movies'} handlePressMovie={onPressMovie} />
+        <HorizontalCarousel data={upcomingMovies?.results} title={'Upcoming Movies'} handlePressMovie={onPressMovie} />
+        <HorizontalCarousel data={topRatedMovies?.results} title={'Top Rated Movies'} handlePressMovie={onPressMovie} />
       </div>
       <NavbarDetail />
       <ModalDetail />

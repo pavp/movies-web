@@ -4,7 +4,7 @@ import { useRequestSession } from 'hooks'
 import { KEYS_STORAGE, getData } from 'utils/localStorageManager'
 
 export const SessionGlobalState = ({ children }: PropsWithChildren) => {
-  const [session, setSession] = useState<string>('')
+  const [session, setSession] = useState<string>()
   const { requestSession } = useRequestSession()
 
   const getSession = (callRequestSession: boolean = false) => {

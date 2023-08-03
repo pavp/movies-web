@@ -16,6 +16,7 @@ module.exports = {
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx'],
   transform: {
     '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest',
+    '.+\\.(css|styl|less|sass|scss)$': 'jest-transform-css',
   },
   preset: 'ts-jest',
   testPathIgnorePatterns: ['/node_modules/', '/dist/', 'DEPRECATED', '.story.', '/__mocks__/', '.schema.ts'],
