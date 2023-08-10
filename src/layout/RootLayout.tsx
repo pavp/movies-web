@@ -9,7 +9,7 @@ export const RootLayout = ({ children }: IRootLayout) => {
   return (
     <div className="flex flex-col h-screen overflow-hidden">
       <Navbar />
-      <div className="bg-c-dark-purple min-h-screen">{children}</div>
+      <div className="flex-1 overflow-hidden bg-c-dark-purple w-full">{children}</div>
     </div>
   )
 }

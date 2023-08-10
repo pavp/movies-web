@@ -9,7 +9,7 @@ module.exports = {
         'c-light-blue': '#83a0e9',
       },
       blur: {
-        xs: '2px',
+        xs: '1px',
       },
     },
   },

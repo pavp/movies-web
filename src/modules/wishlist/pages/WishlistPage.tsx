@@ -17,7 +17,7 @@ export const WishlistPage = () => {
 
   return (
     <div className="flex w-screen h-screen" data-testid="wishlist-page-container">
-      <div className="overflow-y-auto w-full">
+      <div className="overflow-y-auto w-screen">
         <VerticalCarousel data={data?.results} handlePressMovie={onPressMovie} />
       </div>
       <NavbarDetail />
